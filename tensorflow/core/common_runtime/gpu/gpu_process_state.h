@@ -89,6 +89,10 @@ class GPUProcessState {
     return gpu_allocators_.size();
   }
 
+  Allocator* GetConstructedGPUAllocator(int ordinal) {
+    return gpu_allocators_[ordinal].allocator.get();
+  }
+
   virtual Allocator* GetGpuHostAllocator(int numa_node);
 
   // Registers a Visitor to be invoked on new chunks of memory allocated by the
